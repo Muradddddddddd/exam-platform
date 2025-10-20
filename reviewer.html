@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ревьювер | Exam Platform</title>
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Проверка экзаменационных работ</h1>
+    <nav>
+      <a href="index.html"><button>Главная</button></a>
+      <a href="student.html"><button>Студент</button></a>
+      <a href="admin.html"><button>Админ</button></a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <label>Фильтр по институту:
+        <select id="reviewerInstituteFilter">
+          <option value="">--Все институты--</option>
+          <option value="ИПИТ">ИПИТ</option>
+          <option value="ИЦЭИТП">ИЦЭИТП</option>
+          <option value="ИЭ">ИЭ</option>
+          <option value="ИСАИД">ИСАИД</option>
+        </select>
+      </label>
+    </section>
+    
+    <section>
+      <h2>📚 Работы студентов</h2>
+      <div id="worksContainer"></div>
+    </section>
+
+    <section>
+      <h2>📊 Отчёты</h2>
+      <div style="overflow-x: auto;">
+        <table id="reportTable" border="1" cellpadding="5">
+          <thead>
+            <tr>
+              <th>Институт</th>
+              <th>Группа</th>
+              <th>Дисциплина</th>
+              <th>Оценка</th>
+              <th>Комментарий</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Заполняется через JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDKRSJJSMi-9yqL7oP3A3HrWutLE_8NryM",
+      authDomain: "exam-ggntu.firebaseapp.com",
+      databaseURL: "https://exam-ggntu-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "exam-ggntu",
+      storageBucket: "exam-ggntu.firebasestorage.app",
+      messagingSenderId: "571703714041",
+      appId: "1:571703714041:web:560b4b1ff2f79fbfb20228",
+      measurementId: "G-23VG8W5904"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

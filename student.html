@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Студент | Exam Platform</title>
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Экзамен — студент</h1>
+    <nav>
+      <a href="index.html"><button>Главная</button></a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="studentEntrySection">
+      <h3>Ваша регистрация</h3>
+      <form id="studentForm">
+        <label>ФИО:<br><input type="text" id="fio" required></label><br><br>
+        <label>Группа:<br><input type="text" id="group" required></label><br><br>
+        <label>Институт:<br>
+          <select id="institute" required>
+            <option value="">--Выберите институт--</option>
+            <option value="ИПИТ">ИПИТ</option>
+            <option value="ИЦЭИТП">ИЦЭИТП</option>
+            <option value="ИЭ">ИЭ</option>
+            <option value="ИСАИД">ИСАИД</option>
+          </select>
+        </label><br><br>
+        
+        <label>Выберите предмет:<br>
+          <select id="subjectSelect" required></select>
+        </label><br><br>
+        <button type="submit" class="start-btn">Начать экзамен</button>
+      </form>
+    </section>
+
+    <section id="examSection" class="hidden">
+      <h3>Экзамен — ответы</h3>
+      <div><strong>Оставшееся время:</strong> <span id="timer">60:00</span></div>
+      <div id="questionsContainer"></div>
+      <button id="submitAnswersBtn" class="start-btn">Отправить ответы</button>
+      <p id="examMessage" class="hidden"></p>
+    </section>
+  </main>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDKRSJJSMi-9yqL7oP3A3HrWutLE_8NryM",
+      authDomain: "exam-ggntu.firebaseapp.com",
+      databaseURL: "https://exam-ggntu-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "exam-ggntu",
+      storageBucket: "exam-ggntu.firebasestorage.app",
+      messagingSenderId: "571703714041",
+      appId: "1:571703714041:web:560b4b1ff2f79fbfb20228",
+      measurementId: "G-23VG8W5904"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

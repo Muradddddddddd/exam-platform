@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная | Exam Platform</title>
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Экзаменационная платформа</h1>
+  </header>
+
+  <main class="menu">
+    <h2>Выберите роль</h2>
+    <div class="menu-buttons">
+      <a href="student.html"><button class="menu-btn">Судент</button></a>
+      <a href="reviewer.html"><button class="menu-btn">Ревьювер</button></a>
+      <a href="admin.html"><button class="menu-btn">Админ</button></a>
+    </div>
+  </main>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDKRSJJSMi-9yqL7oP3A3HrWutLE_8NryM",
+      authDomain: "exam-ggntu.firebaseapp.com",
+      databaseURL: "https://exam-ggntu-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "exam-ggntu",
+      storageBucket: "exam-ggntu.firebasestorage.app",
+      messagingSenderId: "571703714041",
+      appId: "1:571703714041:web:560b4b1ff2f79fbfb20228",
+      measurementId: "G-23VG8W5904"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</body>
+</html>

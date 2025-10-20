@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админ | Exam Platform</title>
+  <!-- остальное без изменений -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Панель администратора</h1>
+    <nav>
+      <a href="index.html"><button>Главная</button></a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h3>Создать предмет</h3>
+      <form id="subjectForm">
+        <label>Название предмета:<br>
+          <input type="text" id="newSubjectName" required>
+        </label>
+        <button type="submit" class="start-btn">Добавить предмет</button>
+      </form>
+    </section>
+
+    <section>
+      <h3>Добавить вопрос к предмету</h3>
+      <form id="questionToSubjectForm">
+        <label>Выбрать предмет:<br>
+          <select id="adminSubjectSelect"></select>
+        </label><br><br>
+        <label>Текст вопроса:<br>
+          <textarea id="adminNewQuestion" rows="3" required></textarea>
+        </label><br><br>
+        <button type="submit" class="start-btn">Добавить вопрос</button>
+      </form>
+    </section>
+
+    <section>
+      <h3>Предметы и вопросы</h3>
+      <div id="subjectsContainer"></div>
+    </section>
+    
+    <section>
+      <label>Фильтр по институту:
+        <select id="adminInstituteFilter">
+          <option value="">--Все институты--</option>
+          <option value="ИПИТ">ИПИТ</option>
+          <option value="ИЦЭИТП">ИЦЭИТП</option>
+          <option value="ИЭ">ИЭ</option>
+          <option value="ИСАИД">ИСАИД</option>
+        </select>
+      </label>
+    </section>
+    
+    <section>
+      <h3>Студенты (все данные)</h3>
+      <table id="studentsTable" border="1" cellpadding="5">
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="selectAllStudents"></th>
+            <th>ФИО</th>
+            <th>Группа</th>
+            <th>Институт</th>
+            <th>Дисциплина</th>
+            <th>Статус / Оценка</th>
+          </tr>
+        </thead>
+        <tbody id="studentsTableBody"></tbody>
+      </table>
+      
+      <!-- Кнопка удаления выбранных студентов -->
+      <button class="start-btn" id="deleteSelectedStudents">❌ Удалить выбранных студентов</button>
+      
+      <!-- 📥 КНОПКА ЭКСПОРТА ДЛЯ АДМИНА -->
+      <button class="start-btn" onclick="downloadAdminReport()">📊 Скачать полный отчёт (Excel)</button>
+    </section>
+  </main>
+
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDKRSJJSMi-9yqL7oP3A3HrWutLE_8NryM",
+      authDomain: "exam-ggntu.firebaseapp.com",
+      databaseURL: "https://exam-ggntu-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "exam-ggntu",
+      storageBucket: "exam-ggntu.firebasestorage.app",
+      messagingSenderId: "571703714041",
+      appId: "1:571703714041:web:560b4b1ff2f79fbfb20228",
+      measurementId: "G-23VG8W5904"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
